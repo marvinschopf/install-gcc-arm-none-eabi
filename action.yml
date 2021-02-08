@@ -4,7 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: "Install dependencies"
-      run: "sudo apt-get install -y srecord"
+      run: "sudo apt-get install -y srecord --quiet"
       shell: "bash"
     - name: "Download"
       shell: "bash"
