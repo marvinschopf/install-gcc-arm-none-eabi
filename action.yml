@@ -3,22 +3,14 @@ description: "Install GCC ARM None EABI"
 runs:
   using: "composite"
   steps:
-    - name: "Install dependencies"
-      run: "sudo apt-get install -qq -o Dpkg::Use-Pty=0 srecord --quiet"
+    - run: "sudo apt-get install -qq -o Dpkg::Use-Pty=0 srecord --quiet"
       shell: "bash"
-    - name: "Download"
+    - run: "curl --silent -L https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -O"
       shell: "bash"
-      run: |
-        curl --silent -L https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -O
-    - name: "Verify checksum"
-      shell: "bash"
+    - shell: "bash"
       run: |
         echo "21134caa478bbf5352e239fbc6e2da3038f8d2207e089efc96c3b55f1edcd618 gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2" |sha256sum --check --strict
-    - name: "Unzip"
+    - run: "sudo tar xjf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -C /usr/share/"
       shell: "bash"
-      run: |
-        sudo tar xjf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -C /usr/share/
-    - name: "Link"
+    - run: "sudo ln -s /usr/share/gcc-arm-none-eabi-10-2020-q4-major/bin/* /usr/bin/"
       shell: "bash"
-      run: |
-        sudo ln -s /usr/share/gcc-arm-none-eabi-10-2020-q4-major/bin/* /usr/bin/
