@@ -1,5 +1,5 @@
-name: "Install GNU Arm Embedded toolchain"
-description: "Install GNU Arm Embedded toolchain"
+name: "Install GNU Arm Embedded Toolchain"
+description: "Install GNU Arm Embedded Toolchain"
 runs:
   using: "composite"
   steps:
