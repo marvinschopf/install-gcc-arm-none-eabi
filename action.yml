@@ -1,5 +1,5 @@
-name: "Install GCC ARM None EABI"
-description: "Install GCC ARM None EABI"
+name: "Install GNU Arm Embedded toolchain"
+description: "Install GNU Arm Embedded toolchain"
 runs:
   using: "composite"
   steps:
