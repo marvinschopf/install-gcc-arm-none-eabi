@@ -14,3 +14,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install
         uses: marvinschopf/install-gcc-arm-none-eabi@main
+      - name: Test
+        run: if ! command -v arm-none-eabi-gcc&>/dev/null;then echo "arm-none-eabi-gcc could not be found";exit;fi
